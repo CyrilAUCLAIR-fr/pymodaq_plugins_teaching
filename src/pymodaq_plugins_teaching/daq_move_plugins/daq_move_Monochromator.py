@@ -107,8 +107,8 @@ class DAQ_Move_Monochromator(DAQ_Move_base):
             # if the motors connected to the controller are of different type (mm, µm, nm, , etc...)
             # see BrushlessDCMotor from the thorlabs plugin for an exemple
 
-        elif param.name() == "a_parameter_you've_added_in_self.params":
-           self.controller.your_method_to_apply_this_param_change()
+        elif param.name() == "grating":
+           self.controller.grating = param.value()
         else:
             pass
 
@@ -165,7 +165,7 @@ class DAQ_Move_Monochromator(DAQ_Move_base):
         value = self.set_position_relative_with_scaling(value)
 
         ## TODO for your custom plugin
-        raise NotImplemented  # when writing your own plugin remove this line
+        # raise NotImplemented  # when writing your own plugin remove this line
         self.controller.your_method_to_set_a_relative_value(value.value())  # when writing your own plugin replace this line
         self.emit_status(ThreadCommand('Update_Status', ['Some info you want to log']))
 
